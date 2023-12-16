@@ -26,19 +26,20 @@ const getDayweekByDate = (date, firstDayWeek) => {
 };
 
 const Get = {
-  oncallSchedule: ({ month, firstDayWeek }, oncallSequence) => {
+  oncallSchedule: (monthInfo, oncallSequence) => {
     const oncallQueueOf = getOncallQueueObject(oncallSequence);
+    const { month, firstDayWeek } = monthInfo;
     let lastOncaller;
     const result = [null];
 
     for (let date = 1; date <= CONFIG.LAST_DAY_OF_MONTH[month]; date++) {
       const todayQueue =
         oncallQueueOf[getTodayState(date, month, firstDayWeek)];
+
       if (lastOncaller === todayQueue.seek()) todayQueue.swapNowAndNext();
       lastOncaller = todayQueue.getNow();
       result.push(lastOncaller);
     }
-
     return result;
   },
 

@@ -18,10 +18,17 @@ class RoundQueue {
   }
 
   swapNowAndNext() {
-    [this.#queue[this.#nowIndex], this.#queue[this.#nowIndex + 1]] = [
-      this.#queue[this.#nowIndex + 1],
+    [
+      this.#queue[this.#nowIndex],
+      this.#queue[(this.#nowIndex + 1) % this.#queue.length],
+    ] = [
+      this.#queue[(this.#nowIndex + 1) % this.#queue.length],
       this.#queue[this.#nowIndex],
     ];
+  }
+
+  queue() {
+    return this.#queue;
   }
 }
 
