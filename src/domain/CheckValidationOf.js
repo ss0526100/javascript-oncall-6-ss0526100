@@ -44,6 +44,11 @@ const checkMonth = month => {
   checkNumberInRange(Number(month), 1, 12);
 };
 
+const checkDayWeek = dayWeek => {
+  if (!CONFIG.DAY_WEEK_NAME.includes(dayWeek))
+    throw new Error(ERROR_MESSAGE.INVALID_DAY_WEEK);
+};
+
 const CheckValidationOf = {
   [VARIABLE_NAME.MONTH_INFO]: string => {
     const [month, dayWeek] = string

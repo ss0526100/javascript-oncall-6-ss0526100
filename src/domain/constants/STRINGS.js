@@ -14,6 +14,7 @@ const STRINGS = Object.freeze({
     NOT_NUMBER_IN_RANGE: `${errorHeader}범위 바깥의 수입니다.`,
     NOT_SAME_NUMBER: `${errorHeader}유효하지 않은 숫자입니다. 기대값 : `,
     SAME_ELEMENT_IN_ARRAY: `${errorHeader}중복된 요소가 존재합니다.`,
+    INVALID_DAY_WEEK: `${errorHeader}유효하지 않은 요일입니다.`,
     INVALID_INPUT: `${errorHeader}유효하지 않은 입력 값입니다. 다시 입력해 주세요.`,
   }),
 
