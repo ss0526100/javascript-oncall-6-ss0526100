@@ -57,6 +57,11 @@ const checkOncallList = list => {
       CONFIG.NAME_LENGTH_UPPER
     );
   });
+  checkNumberInRange(
+    list.length,
+    CONFIG.ONCALL_LIST_LENGTH_LOWER,
+    CONFIG.ONCALL_LIST_LENGTH_UPPER
+  );
   checkSameElementInArray(list);
 };
 

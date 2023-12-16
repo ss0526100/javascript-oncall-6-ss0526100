@@ -1,6 +1,7 @@
 class RoundQueue {
   #queue;
   #nowIndex;
+
   constructor(array) {
     this.#queue = [...array];
     this.#nowIndex = 0;
@@ -25,10 +26,6 @@ class RoundQueue {
       this.#queue[(this.#nowIndex + 1) % this.#queue.length],
       this.#queue[this.#nowIndex],
     ];
-  }
-
-  queue() {
-    return this.#queue;
   }
 }
 
