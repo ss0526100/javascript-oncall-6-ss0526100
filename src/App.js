@@ -4,6 +4,7 @@ import CheckValidationOf from './domain/CheckValidationOf.js';
 import Convert from './domain/Convert.js';
 import Get from './domain/Get.js';
 
+import CONFIG from './domain/configs/CONFIG.js';
 import VARIABLE_NAME from './domain/constants/VARIABLE_NAME.js';
 import STRINGS from './domain/constants/STRINGS.js';
 
@@ -47,6 +48,14 @@ const inputOncallSequence = async () => {
   }
 };
 
+const printOnCallSchedule = (oncallSchedule, monthInfo) => {
+  Print.lineBreak();
+  const { month } = monthInfo;
+  for (let date = 1; date <= CONFIG.LAST_DAY_OF_MONTH[month]; date++) {
+    Print.string(Get.oncallScheduleString(date, oncallSchedule, monthInfo));
+  }
+};
+
 class App {
   async run() {
     const monthInfo = await parseInput(VARIABLE_NAME.MONTH_INFO);
@@ -54,7 +63,7 @@ class App {
 
     const oncallSchedule = Get.oncallSchedule(monthInfo, oncallSequence);
 
-    console.log(oncallSchedule);
+    printOnCallSchedule(oncallSchedule, monthInfo);
   }
 }
 

@@ -15,6 +15,10 @@ const Is = {
 
     return copyA.sort().toString() === copyB.sort().toString();
   },
+
+  specialDay: (month, date) => {
+    return CONFIG.SPECIAL_DAY[month].includes(date);
+  },
 };
 
 export default Is;

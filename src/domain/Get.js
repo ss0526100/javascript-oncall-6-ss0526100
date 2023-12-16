@@ -1,5 +1,11 @@
+import Is from './Is.js';
+
 import RoundQueue from '../class/RoundQueue.js';
+
 import CONFIG from './configs/CONFIG.js';
+import STRINGS from './constants/STRINGS.js';
+
+const { KOREAN_MONTH, KOREAN_DATE, SPACE, HOLIDAY_MARK } = STRINGS;
 
 const getOncallQueueObject = oncallSequence => {
   return {
@@ -9,10 +15,14 @@ const getOncallQueueObject = oncallSequence => {
 };
 
 const todayState = (date, month, firstDayWeek) => {
-  if (CONFIG.SPECIAL_DAY[month].includes(date)) return CONFIG.HOLIDAY_STATE;
-  if (4 < Get.dayweekByDate(date, firstDayWeek)) return CONFIG.HOLIDAY_STATE;
+  if (Is.specialDay(month, date)) return CONFIG.HOLIDAY_STATE;
+  if (4 < dayweekByDate(date, firstDayWeek)) return CONFIG.HOLIDAY_STATE;
 
   return CONFIG.WEEKDAY_STATE;
+};
+
+const dayweekByDate = (date, firstDayWeek) => {
+  return (date - 1 + firstDayWeek) % 7;
 };
 
 const Get = {
@@ -31,8 +41,18 @@ const Get = {
     return result;
   },
 
-  dayweekByDate: (date, firstDayWeek) => {
-    return (date - 1 + firstDayWeek) % 7;
+  oncallScheduleString: (date, oncallSchedule, monthInfo) => {
+    const { month, firstDayWeek } = monthInfo;
+
+    let result = `${month}${KOREAN_MONTH}${SPACE}${date}${KOREAN_DATE}${SPACE}${
+      CONFIG.DAY_WEEK_NAME[dayweekByDate(date, firstDayWeek)]
+    }`;
+
+    if (dayweekByDate(date, firstDayWeek) < 5 && Is.specialDay(month, date))
+      result += HOLIDAY_MARK;
+    result += `${SPACE}${oncallSchedule[date]}`;
+
+    return result;
   },
 };
 

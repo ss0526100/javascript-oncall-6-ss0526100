@@ -24,6 +24,10 @@ const STRINGS = Object.freeze({
 
   OUPUT_MESSAGE: Object.freeze({}),
 
+  KOREAN_MONTH: '월',
+  KOREAN_DATE: '일',
+  HOLIDAY_MARK: '(휴일)',
+
   BLANK: '',
   SPACE: ' ',
   DASH: '-',
