@@ -49,6 +49,21 @@ const checkDayWeek = dayWeek => {
     throw new Error(ERROR_MESSAGE.INVALID_DAY_WEEK);
 };
 
+const checkOncallList = list => {
+  list.forEach(name => {
+    checkNumberInRange(
+      name.length,
+      CONFIG.NAME_LENGTH_LOWER,
+      CONFIG.NAME_LENGTH_UPPER
+    );
+  });
+  checkSameElementInArray(list);
+};
+
+const checkWeekdayInfo = list => {
+  checkOncallList(list);
+};
+
 const CheckValidationOf = {
   [VARIABLE_NAME.MONTH_INFO]: string => {
     const [month, dayWeek] = string
@@ -57,6 +72,13 @@ const CheckValidationOf = {
 
     checkMonth(month);
     checkDayWeek(dayWeek);
+  },
+
+  [VARIABLE_NAME.WEEKDAY_INFO]: string => {
+    const oncallList = string
+      .split(CONFIG.ONCALL_LIST_DELIMITER)
+      .map(name => name.trim());
+    checkWeekdayInfo(oncallList);
   },
 };
 

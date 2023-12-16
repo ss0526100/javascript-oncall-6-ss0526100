@@ -16,6 +16,10 @@ const pipe = (variableName, value, option) => {
   return Convert[variableName](value, option);
 };
 
+const throwError = error => {
+  throw error;
+};
+
 const parseInput = async (variableName, option) => {
   const errorHandler = option?.errorHandler ?? Print.errorMessage;
   while (true) {
@@ -28,9 +32,25 @@ const parseInput = async (variableName, option) => {
   }
 };
 
+const inputOncallInfo = async () => {
+  while (true) {
+    try {
+      const weekday = await parseInput(VARIABLE_NAME.WEEKDAY_INFO);
+      const holiday = await parseInput(VARIABLE_NAME.HOLIDAY_INFO, {
+        weekday,
+        errorHandler: throwError,
+      });
+      return { weekday, holiday };
+    } catch (error) {
+      Print.errorMessage();
+    }
+  }
+};
+
 class App {
   async run() {
     const monthInfo = await parseInput(VARIABLE_NAME.MONTH_INFO);
+    const oncallInfo = await inputOncallInfo();
   }
 }
 

@@ -5,7 +5,8 @@ const errorHeader = '[ERROR] ';
 const STRINGS = Object.freeze({
   INPUT_MESSAGE: Object.freeze({
     [VARIABLE_NAME.MONTH_INFO]:
-      '비상 근무를 배정할 월과 시작 요일을 입력하세요>',
+      '비상 근무를 배정할 월과 시작 요일을 입력하세요> ',
+    [VARIABLE_NAME.WEEKDAY_INFO]: `평일 비상 근무 순번대로 사원 닉네임을 입력하세요> `,
   }),
   ERROR_MESSAGE: Object.freeze({
     NOT_DIGIT: `${errorHeader}십진수가 아닙니다.`,
