@@ -50,7 +50,7 @@ const inputOncallSequence = async () => {
 class App {
   async run() {
     //const monthInfo = await parseInput(VARIABLE_NAME.MONTH_INFO);
-    const oncallInfo = await inputOncallSequence();
+    const oncallSequence = await inputOncallSequence();
   }
 }
 

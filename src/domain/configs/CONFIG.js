@@ -2,7 +2,7 @@ const CONFIG = Object.freeze({
   MONTH_INFO_DELIMITER: ',',
   ONCALL_SEQUENCE_DELIMITER: ',',
 
-  DAY_WEEK: ['월', '화', '수', '목', '금', '토', '일'],
+  DAY_WEEK_NAME: ['월', '화', '수', '목', '금', '토', '일'],
   LAST_DAY_OF_MONTH: [null, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
 
   NAME_LENGTH_LOWER: 1,
@@ -10,6 +10,20 @@ const CONFIG = Object.freeze({
 
   ONCALL_LIST_LENGTH_LOWER: 5,
   ONCALL_LIST_LENGTH_UPPER: 35,
+
+  WEEKDAY_STATE: 0,
+  WEEKEND_STATE: 1,
+  HOLIDAY_STATE: 2,
+
+  DAYWEEK_STATE: [
+    this.WEEKDAY_STATE,
+    this.WEEKDAY_STATE,
+    this.WEEKDAY_STATE,
+    this.WEEKDAY_STATE,
+    this.WEEKDAY_STATE,
+    this.WEEKEND_STATE,
+    this.WEEKEND_STATE,
+  ],
 });
 
 export default CONFIG;

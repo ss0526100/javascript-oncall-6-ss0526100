@@ -16,7 +16,10 @@ const Convert = {
       .split(CONFIG.MONTH_INFO_DELIMITER)
       .map(string => string.trim());
 
-    return { month: Number(month), dayWeek: CONFIG.DAY_WEEK.indexOf(dayWeek) };
+    return {
+      month: Number(month),
+      firstDayWeek: CONFIG.DAY_WEEK_NAME.indexOf(dayWeek),
+    };
   },
 
   [VARIABLE_NAME.WEEKDAY_SEQUENCE]: value => {

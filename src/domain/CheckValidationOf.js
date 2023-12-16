@@ -45,7 +45,7 @@ const checkMonth = month => {
 };
 
 const checkDayWeek = dayWeek => {
-  if (!CONFIG.DAY_WEEK.includes(dayWeek))
+  if (!CONFIG.DAY_WEEK_NAME.includes(dayWeek))
     throw new Error(ERROR_MESSAGE.INVALID_DAY_WEEK);
 };
 
