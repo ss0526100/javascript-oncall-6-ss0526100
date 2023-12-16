@@ -2,17 +2,12 @@ import { Console } from '@woowacourse/mission-utils';
 
 import STRINGS from '../domain/constants/STRINGS.js';
 
-const { BLANK } = STRINGS;
+const { BLANK, ERROR_MESSAGE } = STRINGS;
 
 const OutputView = {
   Print: {
-    hello(input, blankHeader = true) {
-      if (blankHeader) this.lineBreak();
-      Console.print(input);
-    },
-
-    errorMessage(error) {
-      Console.print(error.message);
+    errorMessage() {
+      Console.print(ERROR_MESSAGE.INVALID_INPUT);
     },
 
     lineBreak() {

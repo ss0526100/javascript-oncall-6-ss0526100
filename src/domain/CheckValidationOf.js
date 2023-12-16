@@ -39,8 +39,20 @@ const checkSameElementInArray = array => {
   }
 };
 
+const checkMonth = month => {
+  checkDigitIntegerString(month);
+  checkNumberInRange(Number(month), 1, 12);
+};
+
 const CheckValidationOf = {
-  [VARIABLE_NAME.HELLO]: () => {},
+  [VARIABLE_NAME.MONTH_INFO]: string => {
+    const [month, dayWeek] = string
+      .split(CONFIG.MONTH_INFO_DELIMITER)
+      .map(string => string.trim());
+
+    checkMonth(month);
+    checkDayWeek(dayWeek);
+  },
 };
 
 export default CheckValidationOf;

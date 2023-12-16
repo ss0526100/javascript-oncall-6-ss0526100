@@ -17,20 +17,20 @@ const pipe = (variableName, value, option) => {
 };
 
 const parseInput = async (variableName, option) => {
-  const inputMessage = option?.inputMessage ?? INPUT_MESSAGE[variableName];
+  const errorHandler = option?.errorHandler ?? Print.errorMessage();
   while (true) {
-    const value = await InputView.input(inputMessage);
+    const value = await InputView.input(INPUT_MESSAGE[variableName]);
     try {
       return pipe(variableName, value, option);
     } catch (error) {
-      Print.errorMessage(error);
+      errorHandler(error);
     }
   }
 };
 
 class App {
   async run() {
-    const hello = await parseInput(VARIABLE_NAME.HELLO);
+    const monthInfo = await parseInput(VARIABLE_NAME.MONTH_INFO);
   }
 }
 

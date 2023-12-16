@@ -10,7 +10,7 @@ VARIABLE_NAME.$name:(value, to)=>{
 */
 
 const Convert = {
-  [VARIABLE_NAME.HELLO]: (value, to) => {
+  [VARIABLE_NAME.MONTH_INFO]: (value, to) => {
     //'to' is not used
 
     return value;
