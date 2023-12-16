@@ -49,6 +49,11 @@ const checkDayWeek = dayWeek => {
     throw new Error(ERROR_MESSAGE.INVALID_DAY_WEEK);
 };
 
+const checkSameStringElementArray = (arrayA, arrayB) => {
+  if (!Is.sameStringElementArray(arrayA, arrayB))
+    throw new Error(ERROR_MESSAGE.DIFFERENT_STRING_ELEMENT_ARRAY);
+};
+
 const checkOncallList = list => {
   list.forEach(name => {
     checkNumberInRange(
@@ -60,8 +65,13 @@ const checkOncallList = list => {
   checkSameElementInArray(list);
 };
 
-const checkWeekdayInfo = list => {
+const checkWeekdayList = list => {
   checkOncallList(list);
+};
+
+const checkHolidayList = (holidayList, weekdayList) => {
+  checkOncallList(holidayList);
+  checkSameStringElementArray(holidayList, weekdayList);
 };
 
 const CheckValidationOf = {
@@ -74,12 +84,20 @@ const CheckValidationOf = {
     checkDayWeek(dayWeek);
   },
 
-  [VARIABLE_NAME.WEEKDAY_INFO]: string => {
+  [VARIABLE_NAME.WEEKDAY_LIST]: string => {
     const oncallList = string
       .split(CONFIG.ONCALL_LIST_DELIMITER)
       .map(name => name.trim());
 
-    checkWeekdayInfo(oncallList);
+    checkWeekdayList(oncallList);
+  },
+
+  [VARIABLE_NAME.HOLIDAY_LIST]: (string, { weekday }) => {
+    const oncallList = string
+      .split(CONFIG.ONCALL_LIST_DELIMITER)
+      .map(name => name.trim());
+
+    checkHolidayList(oncallList, weekday);
   },
 };
 

@@ -35,8 +35,8 @@ const parseInput = async (variableName, option) => {
 const inputOncallInfo = async () => {
   while (true) {
     try {
-      const weekday = await parseInput(VARIABLE_NAME.WEEKDAY_INFO);
-      const holiday = await parseInput(VARIABLE_NAME.HOLIDAY_INFO, {
+      const weekday = await parseInput(VARIABLE_NAME.WEEKDAY_LIST);
+      const holiday = await parseInput(VARIABLE_NAME.HOLIDAY_LIST, {
         weekday,
         errorHandler: throwError,
       });
@@ -49,7 +49,7 @@ const inputOncallInfo = async () => {
 
 class App {
   async run() {
-    const monthInfo = await parseInput(VARIABLE_NAME.MONTH_INFO);
+    //const monthInfo = await parseInput(VARIABLE_NAME.MONTH_INFO);
     const oncallInfo = await inputOncallInfo();
   }
 }

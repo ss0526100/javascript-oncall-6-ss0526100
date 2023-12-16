@@ -8,6 +8,13 @@ const Is = {
   numberInRange: (number, lower, upper) => {
     return lower <= number && number <= upper;
   },
+
+  sameStringElementArray: (arrayA, arrayB) => {
+    const copyA = [...arrayA];
+    const copyB = [...arrayB];
+
+    return copyA.sort().toString() === copyB.sort().toString();
+  },
 };
 
 export default Is;

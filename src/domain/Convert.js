@@ -19,7 +19,7 @@ const Convert = {
     return { month: Number(month), dayWeek: CONFIG.DAY_WEEK.indexOf(dayWeek) };
   },
 
-  [VARIABLE_NAME.WEEKDAY_INFO]: value => {
+  [VARIABLE_NAME.WEEKDAY_LIST]: value => {
     const weekdayInfo = value
       .split(CONFIG.ONCALL_LIST_DELIMITER)
       .map(string => string.trim());
