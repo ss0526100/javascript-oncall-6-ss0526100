@@ -20,11 +20,19 @@ const Convert = {
   },
 
   [VARIABLE_NAME.WEEKDAY_LIST]: value => {
-    const weekdayInfo = value
+    const weekdayList = value
       .split(CONFIG.ONCALL_LIST_DELIMITER)
       .map(string => string.trim());
 
-    return weekdayInfo;
+    return weekdayList;
+  },
+
+  [VARIABLE_NAME.HOLIDAY_LIST]: value => {
+    const weekdayList = value
+      .split(CONFIG.ONCALL_LIST_DELIMITER)
+      .map(string => string.trim());
+
+    return weekdayList;
   },
 };
 
