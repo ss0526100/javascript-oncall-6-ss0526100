@@ -1,6 +1,6 @@
 const CONFIG = Object.freeze({
   MONTH_INFO_DELIMITER: ',',
-  ONCALL_LIST_DELIMITER: ',',
+  ONCALL_SEQUENCE_DELIMITER: ',',
 
   DAY_WEEK: ['월', '화', '수', '목', '금', '토', '일'],
   LAST_DAY_OF_MONTH: [null, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],

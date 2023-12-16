@@ -19,20 +19,20 @@ const Convert = {
     return { month: Number(month), dayWeek: CONFIG.DAY_WEEK.indexOf(dayWeek) };
   },
 
-  [VARIABLE_NAME.WEEKDAY_LIST]: value => {
-    const weekdayList = value
-      .split(CONFIG.ONCALL_LIST_DELIMITER)
+  [VARIABLE_NAME.WEEKDAY_SEQUENCE]: value => {
+    const weekdaySequence = value
+      .split(CONFIG.ONCALL_SEQUENCE_DELIMITER)
       .map(string => string.trim());
 
-    return weekdayList;
+    return weekdaySequence;
   },
 
-  [VARIABLE_NAME.HOLIDAY_LIST]: value => {
-    const weekdayList = value
-      .split(CONFIG.ONCALL_LIST_DELIMITER)
+  [VARIABLE_NAME.HOLIDAY_SEQUENCE]: value => {
+    const weekdaySequence = value
+      .split(CONFIG.ONCALL_SEQUENCE_DELIMITER)
       .map(string => string.trim());
 
-    return weekdayList;
+    return weekdaySequence;
   },
 };
 

@@ -84,17 +84,17 @@ const CheckValidationOf = {
     checkDayWeek(dayWeek);
   },
 
-  [VARIABLE_NAME.WEEKDAY_LIST]: string => {
+  [VARIABLE_NAME.WEEKDAY_SEQUENCE]: string => {
     const oncallList = string
-      .split(CONFIG.ONCALL_LIST_DELIMITER)
+      .split(CONFIG.ONCALL_SEQUENCE_DELIMITER)
       .map(name => name.trim());
 
     checkWeekdayList(oncallList);
   },
 
-  [VARIABLE_NAME.HOLIDAY_LIST]: (string, { weekday }) => {
+  [VARIABLE_NAME.HOLIDAY_SEQUENCE]: (string, { weekday }) => {
     const oncallList = string
-      .split(CONFIG.ONCALL_LIST_DELIMITER)
+      .split(CONFIG.ONCALL_SEQUENCE_DELIMITER)
       .map(name => name.trim());
 
     checkHolidayList(oncallList, weekday);

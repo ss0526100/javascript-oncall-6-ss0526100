@@ -1,7 +1,7 @@
 const VARIABLE_NAME = Object.freeze({
   MONTH_INFO: 'monthInfo',
-  WEEKDAY_LIST: 'weekdayInfo',
-  HOLIDAY_LIST: 'holidayInfo',
+  WEEKDAY_SEQUENCE: 'weekdayInfo',
+  HOLIDAY_SEQUENCE: 'holidayInfo',
 });
 
 export default VARIABLE_NAME;
