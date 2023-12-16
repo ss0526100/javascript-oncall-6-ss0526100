@@ -17,7 +17,7 @@ const pipe = (variableName, value, option) => {
 };
 
 const parseInput = async (variableName, option) => {
-  const errorHandler = option?.errorHandler ?? Print.errorMessage();
+  const errorHandler = option?.errorHandler ?? Print.errorMessage;
   while (true) {
     const value = await InputView.input(INPUT_MESSAGE[variableName]);
     try {
