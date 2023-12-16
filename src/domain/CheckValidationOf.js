@@ -28,11 +28,6 @@ const checkNumberInRange = (number, lower, upper) => {
     throw new Error(ERROR_MESSAGE.NOT_NUMBER_IN_RANGE);
 };
 
-const checkSameNumber = (number, standard) => {
-  if (number !== standard)
-    throw new Error(ERROR_MESSAGE.NOT_SAME_NUMBER + standard);
-};
-
 const checkSameElementInArray = array => {
   if (array.length !== new Set(array).size) {
     throw new Error(ERROR_MESSAGE.SAME_ELEMENT_IN_ARRAY);

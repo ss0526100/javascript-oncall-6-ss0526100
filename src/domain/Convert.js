@@ -1,15 +1,6 @@
 import VARIABLE_NAME from './constants/VARIABLE_NAME.js';
 import CONFIG from './configs/CONFIG.js';
 
-/*
-Basic form in function Of Convert
-
-VARIABLE_NAME.$name:(value, to)=>{
-  ...
-  return result;
-}
-*/
-
 const Convert = {
   [VARIABLE_NAME.MONTH_INFO]: value => {
     const [month, dayWeek] = value
