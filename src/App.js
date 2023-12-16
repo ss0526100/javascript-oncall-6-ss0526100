@@ -12,17 +12,6 @@ const { INPUT_MESSAGE } = STRINGS;
 
 const Print = OutputView.Print;
 
-class App {
-  async run() {
-    const monthInfo = await parseInput(VARIABLE_NAME.MONTH_INFO);
-    const oncallSequence = await inputOncallSequence();
-
-    const oncallSchedule = Get.oncallSchedule(monthInfo, oncallSequence);
-
-    printOnCallSchedule(oncallSchedule, monthInfo);
-  }
-}
-
 const parseInput = async (variableName, option) => {
   const errorHandler = option?.errorHandler ?? Print.errorMessage;
   while (true) {
@@ -66,5 +55,16 @@ const printOnCallSchedule = (oncallSchedule, monthInfo) => {
     Print.string(Get.oncallScheduleString(date, oncallSchedule, monthInfo));
   }
 };
+
+class App {
+  async run() {
+    const monthInfo = await parseInput(VARIABLE_NAME.MONTH_INFO);
+    const oncallSequence = await inputOncallSequence();
+
+    const oncallSchedule = Get.oncallSchedule(monthInfo, oncallSequence);
+
+    printOnCallSchedule(oncallSchedule, monthInfo);
+  }
+}
 
 export default App;
