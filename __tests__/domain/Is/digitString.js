@@ -1,4 +1,4 @@
-import Is from '../../../src/domain/Is';
+import Is from '../../../src/domain/Is.js';
 
 describe('digitString()', () => {
   test.each([['1'], ['1.1'], ['-1'], ['0'], ['-1.3'], ['-1.0'], ['-0.0']])(

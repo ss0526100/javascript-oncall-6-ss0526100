@@ -1,4 +1,4 @@
-import Is from '../../../src/domain/Is';
+import Is from '../../../src/domain/Is.js';
 
 describe('numberInRange()', () => {
   test.each([
