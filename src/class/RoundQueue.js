@@ -2,13 +2,15 @@ class RoundQueue {
   #queue;
   #nowIndex;
   constructor(array) {
-    this.#queue.push(...array);
+    this.#queue = [...array];
     this.#nowIndex = 0;
   }
 
   getNow() {
     const result = this.#queue[this.#nowIndex];
     this.#nowIndex = (this.#nowIndex + 1) % this.#queue.length;
+
+    return result;
   }
 
   seek() {
