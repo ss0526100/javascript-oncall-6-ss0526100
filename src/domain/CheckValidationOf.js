@@ -78,6 +78,7 @@ const CheckValidationOf = {
     const oncallList = string
       .split(CONFIG.ONCALL_LIST_DELIMITER)
       .map(name => name.trim());
+
     checkWeekdayInfo(oncallList);
   },
 };
